@@ -97,6 +97,11 @@ public class InternalData extends Activity implements OnClickListener {
 	
 	public class loadSomeStuff extends AsyncTask<String, Integer, String>{
 
+		protected void onPreExecute(String f) {
+			//example of setting up something
+			f = "whateer";
+		}
+		
 		@Override
 		protected String doInBackground(String... params) {
 			// TODO Auto-generated method stub
@@ -126,7 +131,13 @@ public class InternalData extends Activity implements OnClickListener {
 			return null;
 		}
 		
+		protected void onProgressUpdate(Integer...progress) {
+			
+		}
+		
+		protected void onPostExecute(String result) {
+			dataResults.setText(result);
+		}
+		
 	}
-	
-
 }
