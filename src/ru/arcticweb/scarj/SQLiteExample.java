@@ -53,6 +53,15 @@ public class SQLiteExample extends Activity implements OnClickListener {
 			} catch (Exception e) {
 				// TODO: handle exception
 				didItWork = false;
+				String error = e.toString();
+				
+				Dialog d = new Dialog(this);
+				d.setTitle("Беда!");
+				TextView tv = new TextView(this);
+				tv.setText(error);
+				d.setContentView(tv);
+				d.show();
+				
 			} finally {
 				if (didItWork) {
 					Dialog d = new Dialog(this);

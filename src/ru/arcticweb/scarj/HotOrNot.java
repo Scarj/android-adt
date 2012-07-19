@@ -66,4 +66,10 @@ public class HotOrNot {
 		return ourDatabase.insert(DB_TABLE, null, cv);
 	}
 
+	public String getData() {
+		// TODO Auto-generated method stub
+		String[] columns = new String[]{KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		return null;
+	}
+
 }
