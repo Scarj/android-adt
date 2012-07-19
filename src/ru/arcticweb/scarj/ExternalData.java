@@ -1,6 +1,11 @@
 package ru.arcticweb.scarj;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -22,7 +27,7 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 	boolean canW, canR;
 	Spinner spinner;
 	String[] paths = {"Music", "Pictures", "Downloads"};
-	File path = null;
+	File path = null,file =null;
 	EditText saveFile;
 	Button confirm, save;
 
@@ -37,9 +42,21 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 		save = (Button) findViewById(R.id.bSaveFile);
 		confirm.setOnClickListener(this);
 		save.setOnClickListener(this);
-
-		state = Environment.getExternalStorageState();
 		
+		checkState();
+
+		
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(ExternalData.this, android.R.layout.simple_spinner_item,paths);
+		
+		spinner = (Spinner) findViewById(R.id.spinner1);
+		spinner.setAdapter(adapter);
+		spinner.setOnItemSelectedListener(this);
+	}
+
+	private void checkState() {
+		// TODO Auto-generated method stub
+		state = Environment.getExternalStorageState();
 		if(state.equals(Environment.MEDIA_MOUNTED)){
 			// read&write
 			canWrite.setText("true");
@@ -54,13 +71,7 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 			canWrite.setText("false");
 			canRead.setText("false");
 			canR = false; canW = true;
-		}
-		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(ExternalData.this, android.R.layout.simple_spinner_item,paths);
-		
-		spinner = (Spinner) findViewById(R.id.spinner1);
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(this);
+		}		
 	}
 
 	@Override
@@ -95,7 +106,26 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.bSaveFile:
-			save.setVisibility(View.INVISIBLE);
+			String f = saveFile.getText().toString();
+			file = new File(path, f);
+			checkState();
+			if(canW == canR == true) {
+				try {
+					InputStream is = getResources().openRawResource(R.drawable.greenball);
+					OutputStream os = new FileOutputStream(file);
+					byte[] data = new byte[is.available()];
+					is.read(data);
+					os.write(data);
+					is.close();
+					os.close();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 			
 			break;
 
