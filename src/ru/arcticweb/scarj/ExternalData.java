@@ -6,13 +6,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class ExternalData extends Activity implements OnItemSelectedListener{
+public class ExternalData extends Activity implements OnItemSelectedListener, OnClickListener{
 	
 	private TextView canWrite, canRead;
 	private String state;
@@ -20,6 +23,8 @@ public class ExternalData extends Activity implements OnItemSelectedListener{
 	Spinner spinner;
 	String[] paths = {"Music", "Pictures", "Downloads"};
 	File path = null;
+	EditText saveFile;
+	Button confirm, save;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,10 @@ public class ExternalData extends Activity implements OnItemSelectedListener{
 		setContentView(R.layout.externaldata);
 		canRead = (TextView) findViewById(R.id.tvCanRead);
 		canWrite = (TextView) findViewById(R.id.tvCanWrite);
+		confirm = (Button) findViewById(R.id.bConfirmSaveAs);
+		save = (Button) findViewById(R.id.bSaveFile);
+		confirm.setOnClickListener(this);
+		save.setOnClickListener(this);
 
 		state = Environment.getExternalStorageState();
 		
@@ -78,6 +87,22 @@ public class ExternalData extends Activity implements OnItemSelectedListener{
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.bSaveFile:
+			save.setVisibility(View.INVISIBLE);
+			
+			break;
+
+		case R.id.bConfirmSaveAs:
+			save.setVisibility(View.VISIBLE);
+			break;
+		}
 		
 	}
 	
