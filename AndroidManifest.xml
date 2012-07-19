@@ -55,5 +55,6 @@
 		<activity android:name=".Flipper" android:label="@string/app_name" />
 		<activity android:name=".SharedPrefs" android:label="@string/app_name" />
 		<activity android:name=".InternalData" android:label="@string/app_name" />
+		<activity android:name=".ExternalData" android:label="@string/app_name" />
 	</application>
 </manifest>
