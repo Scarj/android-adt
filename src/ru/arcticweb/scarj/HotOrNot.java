@@ -53,5 +53,14 @@ public class HotOrNot {
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
 	}
+	
+	public void close(){
+		ourHelper.close();
+	}
 
+	public void createEntry(String name, String hotness) {
+		// TODO Auto-generated method stub
+		
+	}
+		
 }
