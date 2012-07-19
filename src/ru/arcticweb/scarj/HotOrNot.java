@@ -2,6 +2,7 @@ package ru.arcticweb.scarj;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
@@ -33,7 +34,7 @@ public class HotOrNot {
 			// TODO Auto-generated method stub
 			db.execSQL("CREATE TABLE " + DB_TABLE + " (" + KEY_ROWID
 					+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_NAME
-					+ "TEXT NOT NULL, " + KEY_HOTNESS + " TEXT NOT NULL );");
+					+ " TEXT NOT NULL, " + KEY_HOTNESS + " TEXT NOT NULL );");
 		}
 
 		@Override
@@ -69,7 +70,17 @@ public class HotOrNot {
 	public String getData() {
 		// TODO Auto-generated method stub
 		String[] columns = new String[]{KEY_ROWID, KEY_NAME, KEY_HOTNESS};
-		return null;
+		Cursor cr = ourDatabase.query(DB_TABLE, columns, null, null, null, null, null);
+		String result = "";
+		
+		int iRow = cr.getColumnIndex(KEY_ROWID);
+		int iName = cr.getColumnIndex(KEY_NAME);
+		int iHotness = cr.getColumnIndex(KEY_HOTNESS);
+		
+		for(cr.moveToFirst();!cr.isAfterLast();cr.moveToNext()){
+			result+=cr.getString(iRow) + " " + cr.getString(iName)+" " + cr.getString(iHotness) + "\n";
+		}
+		
+		return result;
 	}
-
 }
