@@ -83,4 +83,14 @@ public class HotOrNot {
 		
 		return result;
 	}
+
+	public String getName(long l) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getHotness(long l) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

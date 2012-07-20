@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class SQLiteExample extends Activity implements OnClickListener {
 
-	Button sqlUpdate, sqlView;
-	EditText sqlName, sqlHotness;
+	Button sqlUpdate, sqlView, sqlModify, sqlGetInfo,sqlDelete;
+	EditText sqlName, sqlHotness, sqlRow;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,13 @@ public class SQLiteExample extends Activity implements OnClickListener {
 
 		sqlUpdate.setOnClickListener(this);
 		sqlView.setOnClickListener(this);
+		
+		sqlRow = (EditText) findViewById(R.id.etSQLrowInfo);
+		sqlModify = (Button) findViewById(R.id.bSQLedit);
+		sqlDelete = (Button) findViewById(R.id.bSQLdelete);
+		sqlDelete.setOnClickListener(this);
+		sqlModify.setOnClickListener(this);
+		sqlGetInfo.setOnClickListener(this);
 
 	}
 
@@ -77,6 +84,28 @@ public class SQLiteExample extends Activity implements OnClickListener {
 		case R.id.bSQLopenView:
 			Intent i = new Intent("ru.arcticweb.scarj.SQLVIEW");
 			startActivity(i);
+			break;
+			
+		case R.id.bgetInfo:
+			String s = sqlRow.getText().toString();
+			long l = Long.parseLong(s);
+			HotOrNot hon = new HotOrNot(this);
+			hon.open();
+			String returnedName = hon.getName(l);
+			String returnedHotness = hon.getHotness(l);
+			hon.close();
+			
+			sqlName.setText(returnedName);
+			sqlHotness.setText(returnedHotness);
+			
+			break;
+			
+		case R.id.bSQLedit:
+			
+			break;
+			
+		case R.id.bSQLdelete:
+			
 			break;
 		}
 	}
