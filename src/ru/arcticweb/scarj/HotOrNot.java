@@ -107,4 +107,12 @@ public class HotOrNot {
 		}		
 		return null;
 	}
+
+	public void updateEntry(long lRow, String mName, String mHotness) {
+		// TODO Auto-generated method stub
+		ContentValues cvUpdate = new ContentValues();
+		cvUpdate.put(KEY_NAME, mName);
+		cvUpdate.put(KEY_HOTNESS, mHotness);
+		ourDatabase.update(DB_TABLE, cvUpdate, KEY_ROWID + "=" + lRow, null);
+	}
 }

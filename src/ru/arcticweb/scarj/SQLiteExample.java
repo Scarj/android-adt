@@ -103,6 +103,15 @@ public class SQLiteExample extends Activity implements OnClickListener {
 			break;
 			
 		case R.id.bSQLedit:
+			String mName = sqlName.getText().toString();
+			String mHotness = sqlHotness.getText().toString();
+			String sRow = sqlRow.getText().toString();
+			long lRow = Long.parseLong(sRow);
+			
+			HotOrNot ex = new HotOrNot(this);
+			ex.open();
+			ex.updateEntry(lRow,mName,mHotness);
+			ex.close();
 			
 			break;
 			
