@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -23,6 +24,11 @@ public class Accelerate extends Activity implements SensorEventListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(new MyBringBackSurface(this));
+		SensorManager sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		if(sm.getSensorList(Sensor.TYPE_ACCELEROMETER).size()!=0){
+			Sensor s = sm.getSensorList(Sensor.TYPE_ACCELEROMETER).get(0);
+			sm.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+		}
 	}
 
 	@Override
