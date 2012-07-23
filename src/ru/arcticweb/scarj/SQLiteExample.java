@@ -32,6 +32,8 @@ public class SQLiteExample extends Activity implements OnClickListener {
 		sqlRow = (EditText) findViewById(R.id.etSQLrowInfo);
 		sqlModify = (Button) findViewById(R.id.bSQLedit);
 		sqlDelete = (Button) findViewById(R.id.bSQLdelete);
+		sqlGetInfo = (Button) findViewById(R.id.bgetInfo);
+		
 		sqlDelete.setOnClickListener(this);
 		sqlModify.setOnClickListener(this);
 		sqlGetInfo.setOnClickListener(this);

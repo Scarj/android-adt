@@ -86,11 +86,25 @@ public class HotOrNot {
 
 	public String getName(long l) {
 		// TODO Auto-generated method stub
+		String[] columns = new String[]{KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		Cursor c = ourDatabase.query(DB_TABLE, columns, KEY_ROWID+"="+l, null, null, null, null);
+		if(c!=null) {
+			c.moveToFirst();
+			String name = c.getString(c.getColumnIndex(KEY_NAME));
+			return name;
+		}
 		return null;
 	}
 
 	public String getHotness(long l) {
 		// TODO Auto-generated method stub
+		String[] columns = new String[]{KEY_ROWID, KEY_NAME, KEY_HOTNESS};
+		Cursor c = ourDatabase.query(DB_TABLE, columns, KEY_ROWID+"="+l, null, null, null, null);
+		if(c!=null) {
+			c.moveToFirst();
+			String hotness = c.getString(c.getColumnIndex(KEY_HOTNESS));
+			return hotness;
+		}		
 		return null;
 	}
 }
