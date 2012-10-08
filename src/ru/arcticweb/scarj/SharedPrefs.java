@@ -38,7 +38,6 @@ public class SharedPrefs extends Activity implements OnClickListener{
 		load.setOnClickListener(this);
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		String stringData;

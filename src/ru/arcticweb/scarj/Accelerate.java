@@ -28,7 +28,6 @@ public class Accelerate extends Activity implements SensorEventListener{
 		sm.unregisterListener(this);
 	}
 	
-	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		// TODO Auto-generated method stub
 		
@@ -52,7 +51,6 @@ public class Accelerate extends Activity implements SensorEventListener{
 		x = y = sensorX = sensorY = 0;
 	}
 
-	@Override
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
 		try {
@@ -97,7 +95,6 @@ public class Accelerate extends Activity implements SensorEventListener{
 			ourThread.start();		
 		}
 		
-		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			while(isRunning){

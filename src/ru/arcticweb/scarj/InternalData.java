@@ -1,6 +1,5 @@
 package ru.arcticweb.scarj;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -55,11 +54,10 @@ public class InternalData extends Activity implements OnClickListener {
 		}
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		String data;
-		File f;
+		//File f;
 		
 		switch (v.getId()) {
 		case R.id.bSave:

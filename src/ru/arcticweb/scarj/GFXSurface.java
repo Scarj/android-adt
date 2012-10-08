@@ -47,7 +47,6 @@ public class GFXSurface extends Activity implements OnTouchListener{
 		ourSurfaceView.resume();
 	}
 
-	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO Auto-generated method stub
 		
@@ -112,7 +111,6 @@ public class GFXSurface extends Activity implements OnTouchListener{
 			ourThread.start();		
 		}
 		
-		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			while(isRunning){

@@ -36,7 +36,7 @@ public class Menu extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		String cheese = classes[position];
 		try {
-			Class ourClass = Class.forName("ru.arcticweb.scarj." + cheese);
+			Class<?> ourClass = Class.forName("ru.arcticweb.scarj." + cheese);
 			Intent ourIntent = new Intent(Menu.this, ourClass);
 			startActivity(ourIntent);
 		} catch (ClassNotFoundException e) {

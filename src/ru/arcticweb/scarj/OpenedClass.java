@@ -47,7 +47,6 @@ public class OpenedClass extends Activity implements OnClickListener,
 		selectionList.setOnCheckedChangeListener(this);
 	}
 
-	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		Intent person = new Intent();
@@ -58,7 +57,6 @@ public class OpenedClass extends Activity implements OnClickListener,
 		finish();
 	}
 
-	@Override
 	public void onCheckedChanged(RadioGroup arg0, int arg1) {
 		// TODO Auto-generated method stub
 		switch (arg1) {

@@ -29,14 +29,12 @@ public class SoundStuff extends Activity implements OnClickListener, OnLongClick
 		mp = MediaPlayer.create(this, R.raw.splashsound);
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if(explosion!=0)
 			sp.play(explosion, 1, 1, 0, 0, 1);
 	}
 
-	@Override
 	public boolean onLongClick(View arg0) {
 		// TODO Auto-generated method stub
 		if(mp.isPlaying())

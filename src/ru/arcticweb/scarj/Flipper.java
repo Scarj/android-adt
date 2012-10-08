@@ -21,7 +21,6 @@ public class Flipper extends Activity implements OnClickListener {
 		flippy.startFlipping();
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		flippy.showNext();

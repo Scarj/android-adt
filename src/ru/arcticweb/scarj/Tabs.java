@@ -49,7 +49,6 @@ public class Tabs extends Activity implements OnClickListener {
 		start = 0;
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
@@ -58,7 +57,6 @@ public class Tabs extends Activity implements OnClickListener {
 			TabSpec ourSpec = th.newTabSpec("tag1");
 			ourSpec.setContent(new TabHost.TabContentFactory() {
 				
-				@Override
 				public View createTabContent(String tag) {
 					// TODO Auto-generated method stub
 					

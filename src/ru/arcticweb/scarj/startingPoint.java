@@ -21,7 +21,6 @@ public class startingPoint extends Activity {
         sub = (Button) findViewById(R.id.bSub);
         display = (TextView) findViewById(R.id.tvDisplay);
         add.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				counter++;
@@ -29,7 +28,6 @@ public class startingPoint extends Activity {
 			}
 		});
         sub.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				if (counter>0) counter--;

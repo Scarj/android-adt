@@ -78,9 +78,7 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 		}		
 	}
 
-	@Override
-	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-			long arg3) {
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		int position = spinner.getSelectedItemPosition();
 		switch (position) {
@@ -99,13 +97,11 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 		
 	}
 
-	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
@@ -133,7 +129,6 @@ public class ExternalData extends Activity implements OnItemSelectedListener, On
 							null, 
 							new MediaScannerConnection.OnScanCompletedListener() {
 								
-								@Override
 								public void onScanCompleted(String path, Uri uri) {
 									// TODO Auto-generated method stub
 									Toast t = Toast.makeText(ExternalData.this, "scan complete", Toast.LENGTH_SHORT);

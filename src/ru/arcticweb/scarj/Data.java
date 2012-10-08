@@ -33,7 +33,6 @@ public class Data extends Activity implements OnClickListener {
 		startFor.setOnClickListener(this);
 	}
 
-	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
 		switch (arg0.getId()) {

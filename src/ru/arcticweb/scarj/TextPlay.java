@@ -39,7 +39,6 @@ public class TextPlay extends Activity implements View.OnClickListener{
 		display = (TextView) findViewById(R.id.tvResults);
 	}
 
-	@Override
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
 		switch(view.getId()){
