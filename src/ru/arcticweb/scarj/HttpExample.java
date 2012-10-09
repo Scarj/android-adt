@@ -14,6 +14,15 @@ public class HttpExample extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.httpex);
 		httpStuff = (TextView) findViewById(R.id.tvHttp);
+		GetMethodEx test = new GetMethodEx();
+		String returned;
+		try {
+			returned = test.getInternetData();
+			httpStuff.setText(returned);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
